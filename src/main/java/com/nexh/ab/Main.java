@@ -1,6 +1,7 @@
 package com.nexh.ab;
 
-import com.nexh.ab.events.CommandListener;
+import com.nexh.ab.command.CommandManager;
+import com.nexh.ab.command.CommandListener;
 import com.nexh.ab.events.ReadyListener;
 import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDABuilder;

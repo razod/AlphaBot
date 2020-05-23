@@ -1,4 +1,4 @@
-package com.nexh.ab.objects;
+package com.nexh.ab.command;
 
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 

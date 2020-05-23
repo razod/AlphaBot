@@ -1,8 +1,8 @@
 package com.nexh.ab.commands;
 
 import com.nexh.ab.BotConfig;
-import com.nexh.ab.CommandManager;
-import com.nexh.ab.objects.ICommand;
+import com.nexh.ab.command.CommandManager;
+import com.nexh.ab.command.ICommand;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 

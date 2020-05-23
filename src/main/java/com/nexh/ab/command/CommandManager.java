@@ -1,7 +1,8 @@
-package com.nexh.ab;
+package com.nexh.ab.command;
 
+import com.nexh.ab.BotConfig;
 import com.nexh.ab.commands.*;
-import com.nexh.ab.objects.ICommand;
+import com.nexh.ab.command.ICommand;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.util.*;
@@ -10,7 +11,7 @@ import java.util.regex.Pattern;
 public class CommandManager {
     private final Map<String, ICommand> cmds = new HashMap<>();
 
-    private CommandManager() {
+    public CommandManager() {
         addCommands(new Ping());
         addCommands(new Help(this));
     }
