@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 public class CommandManager {
     private final Map<String, ICommand> cmds = new HashMap<>();
 
-    public CommandManager() {
+    private CommandManager() {
         addCommands(new Ping());
         addCommands(new Help(this));
     }
