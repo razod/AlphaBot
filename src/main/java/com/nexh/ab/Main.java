@@ -1,16 +1,19 @@
 package com.nexh.ab;
 
-import com.nexh.ab.commands.*;
-import com.nexh.ab.events.HelloEvent;
+import com.nexh.ab.events.CommandListener;
+import com.nexh.ab.events.ReadyListener;
+import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDABuilder;
 import javax.security.auth.login.LoginException;
-import com.nexh.ab.BotConfig;
 
 public class Main {
-    public static void main(String[] args) throws LoginException {
-        new JDABuilder()
+    private Main() throws LoginException {
+        new JDABuilder(AccountType.BOT)
                 .setToken(BotConfig.TOKEN)
-                .addEventListeners(new HelloEvent(), new Calculate())
+                .addEventListeners(new ReadyListener(), new CommandListener())
                 .build();
+    }
+    public static void main(String[] args) throws LoginException {
+        new Main();
     }
 }
