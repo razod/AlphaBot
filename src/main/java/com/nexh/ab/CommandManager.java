@@ -1,13 +1,10 @@
 package com.nexh.ab;
 
-import com.nexh.ab.commands.Ping;
+import com.nexh.ab.commands.*;
 import com.nexh.ab.objects.ICommand;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Pattern;
 
 public class CommandManager {
@@ -15,12 +12,21 @@ public class CommandManager {
 
     public CommandManager() {
         addCommands(new Ping());
+        addCommands(new Help(this));
     }
 
     private void addCommands(ICommand cmd) {
         if(!cmds.containsKey(cmd.getInvoke())) {
             cmds.put(cmd.getInvoke(), cmd);
         }
+    }
+
+    public Collection<ICommand> getCommands() {
+        return cmds.values();
+    }
+
+    public ICommand getCommand(String name) {
+        return cmds.get(name);
     }
 
     public void handleCommand(GuildMessageReceivedEvent e) {

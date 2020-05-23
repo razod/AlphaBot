@@ -13,6 +13,11 @@ public class Ping implements ICommand {
                 );
     }
 
+    @Override
+    public String getDesc() {
+        return "Pong!";
+    }
+
     public String getHelp() {
         return "Pong!\n" +
                 "Usage: `" + BotConfig.PREFIX + getInvoke() + "`";

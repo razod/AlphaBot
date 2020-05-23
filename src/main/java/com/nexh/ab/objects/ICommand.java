@@ -8,5 +8,6 @@ public interface ICommand {
     void handle(List<String> args, GuildMessageReceivedEvent event);
     String getHelp();
     String getInvoke();
+    String getDesc();
 
 }

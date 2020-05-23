@@ -8,7 +8,11 @@ import javax.annotation.Nonnull;
 
 public class CommandListener extends ListenerAdapter {
 
-    private final CommandManager manager = new CommandManager();
+    private final CommandManager manager;
+
+    public CommandListener(CommandManager manager) {
+        this.manager = manager;
+    }
 
     @Override
     public void onGuildMessageReceived(@Nonnull GuildMessageReceivedEvent event) {
