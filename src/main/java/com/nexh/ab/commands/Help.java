@@ -6,7 +6,9 @@ import com.nexh.ab.command.ICommand;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
+import java.awt.*;
 import java.util.List;
+import java.util.Random;
 
 public class Help implements ICommand {
 
@@ -14,6 +16,7 @@ public class Help implements ICommand {
     public Help(CommandManager manager) {
         this.manager = manager;
     }
+    private final Random random = new Random();
 
     @Override
     public String getDesc() {
@@ -41,7 +44,8 @@ public class Help implements ICommand {
     private void generateAndSendEmbed(GuildMessageReceivedEvent event) {
 
         EmbedBuilder builder = new EmbedBuilder()
-                .setTitle("List of commands");
+                .setTitle("List of commands")
+                .setColor(getRandomColor());
 
         StringBuilder desc = builder.getDescriptionBuilder();
 
@@ -50,6 +54,14 @@ public class Help implements ICommand {
                 );
 
         event.getChannel().sendMessage(builder.build()).queue();
+    }
+
+    private Color getRandomColor() {
+        float r = random.nextFloat();
+        float g = random.nextFloat();
+        float b = random.nextFloat();
+
+        return new Color(r, g, b);
     }
 
     @Override

@@ -8,12 +8,12 @@ import net.dv8tion.jda.api.JDABuilder;
 import javax.security.auth.login.LoginException;
 
 public class Main {
-    CommandManager manager = new CommandManager();
-    CommandListener listener = new CommandListener(manager);
+    private CommandManager manager = new CommandManager();
+    private CommandListener cmdlistener = new CommandListener(manager);
     private Main() throws LoginException {
         new JDABuilder(AccountType.BOT)
                 .setToken(BotConfig.TOKEN)
-                .addEventListeners(new ReadyListener(), listener)
+                .addEventListeners(new ReadyListener(), cmdlistener)
                 .build();
     }
     public static void main(String[] args) throws LoginException {
