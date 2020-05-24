@@ -10,12 +10,17 @@ import java.util.List;
 
 public class Ping implements ICommand {
     public void handle(List<String> args, GuildMessageReceivedEvent e) {
-        e.getMessage().addReaction("🏓").queue();
         EmbedBuilder builder = new EmbedBuilder()
                 .setTitle("Pong!")
-                .setDescription(":ping_pong: Ping is `" + e.getJDA().getGatewayPing() + "`ms")
                 .setTimestamp(Instant.now());
-        e.getChannel().sendMessage(builder.build()).queue();
+        EmbedBuilder builder2 = new EmbedBuilder()
+                .setTitle("Pong!")
+                .setDescription(":ping_pong: Ping is `" + e.getJDA().getGatewayPing() + "` ms")
+                .setTimestamp(Instant.now());
+        e.getChannel().sendMessage(builder.build()).queue((msg) -> {
+                    e.getMessage().addReaction("🏓").queue();
+                    msg.editMessage(builder2.build()).queue();
+                });
 }
 
     @Override
