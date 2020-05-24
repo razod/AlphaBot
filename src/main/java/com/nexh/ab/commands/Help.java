@@ -51,8 +51,8 @@ public class Help implements ICommand {
 
         StringBuilder desc = builder.getDescriptionBuilder();
 
-        manager.getCommands().forEach(
-                (cmd) -> desc.append('`').append(cmd.getInvoke()).append("` - `").append(cmd.getDesc()).append("`\n")
+        manager.getCommands().forEach((cmd) ->
+                        desc.append('`').append(cmd.getInvoke()).append("` - `").append(cmd.getDesc()).append("`\n")
                 );
 
         event.getChannel().sendMessage(builder.build()).queue();
