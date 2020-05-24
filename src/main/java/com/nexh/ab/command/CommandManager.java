@@ -14,6 +14,7 @@ public class CommandManager {
     public CommandManager() {
         addCommands(new Ping());
         addCommands(new Help(this));
+        addCommands(new Poll());
     }
 
     private void addCommands(ICommand cmd) {
