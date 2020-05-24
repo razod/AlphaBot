@@ -7,6 +7,7 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.awt.*;
+import java.time.Instant;
 import java.util.List;
 import java.util.Random;
 
@@ -45,6 +46,7 @@ public class Help implements ICommand {
 
         EmbedBuilder builder = new EmbedBuilder()
                 .setTitle("List of commands")
+                .setTimestamp(Instant.now())
                 .setColor(getRandomColor());
 
         StringBuilder desc = builder.getDescriptionBuilder();
